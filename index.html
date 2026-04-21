@@ -1,0 +1,131 @@
+<?php 
+$page_title = "Beranda";
+include 'config.php'; 
+include 'header.php'; 
+?>
+
+<!-- 1. HERO SECTION -->
+<section class="hero-gradient text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">IP2TP Batang</h1>
+        <p class="text-xl mb-8">Pusat Inovasi & Teknologi Pertanian Digital</p>
+        <div class="flex justify-center space-x-4">
+            <a href="pages/riset.php" class="bg-white text-green-700 px-6 py-3 rounded-lg">Jelajahi Inovasi →</a>
+            <a href="pages/data-pertanian.php" class="border-2 border-white px-6 py-3 rounded-lg">Lihat Dashboard</a>
+        </div>
+    </div>
+</section>
+
+<!-- 2. QUICK ACCESS -->
+<section class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <a href="#" class="bg-white p-4 rounded-xl text-center shadow">🌾 Cek Harga Pasar</a>
+        <a href="#" class="bg-white p-4 rounded-xl text-center shadow">📅 Kalender Tanam</a>
+        <a href="#" class="bg-white p-4 rounded-xl text-center shadow">🐛 Laporan Hama</a>
+        <a href="#" class="bg-white p-4 rounded-xl text-center shadow">💬 Chat TaniBot</a>
+        <a href="#" class="bg-white p-4 rounded-xl text-center shadow">📊 Cek Data Produksi</a>
+    </div>
+</section>
+
+<!-- 3. DASHBOARD (4 KARTU) -->
+<section class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold text-center mb-6">📊 Dashboard Pertanian Real-time</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow">
+            <div class="text-3xl">🌾</div>
+            <div>Produksi Padi</div>
+            <div class="text-2xl font-bold text-green-700">1.250 ton</div>
+            <div class="text-green-600">▲ +8% vs 2024</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow">
+            <div class="text-3xl">🗺️</div>
+            <div>Luas Panen</div>
+            <div class="text-2xl font-bold text-green-700">520 Ha</div>
+            <div class="text-green-600">▲ +5% vs 2024</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow">
+            <div class="text-3xl">💰</div>
+            <div>Harga Gabah</div>
+            <div class="text-2xl font-bold text-red-600">Rp 6.200/kg</div>
+            <div class="text-red-600">▼ -2% vs 2024</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow">
+            <div class="text-3xl">☔</div>
+            <div>Curah Hujan</div>
+            <div class="text-2xl font-bold text-blue-600">120 mm</div>
+            <div class="text-blue-600">Normal</div>
+        </div>
+    </div>
+    
+    <!-- GRAFIK CHART -->
+    <div class="mt-8 bg-white p-6 rounded-xl shadow">
+        <canvas id="produksiChart" height="200"></canvas>
+        <p class="text-center text-gray-500 mt-4">📈 Tren Produksi Padi 6 Bulan Terakhir</p>
+    </div>
+</section>
+
+<!-- 4. INOVASI UNGGULAN (6 KARTU) -->
+<section class="container mx-auto px-4 py-12 bg-gray-100 rounded-2xl my-8">
+    <h2 class="text-2xl font-bold text-center mb-6">🚀 Inovasi Unggulan IP2TP</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow text-center">🗺️ <h3>SILEPBAH</h3><p>Sistem Informasi Lahan Pertanian</p></div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">💬 <h3>TaniBot AI</h3><p>Chatbot Konsultasi 24/7</p></div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">📅 <h3>Kalender Tanam</h3><p>Rekomendasi berbasis data iklim</p></div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">🌾 <h3>Varietas Unggul</h3><p>Padi, jagung, kedelai</p></div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">🎓 <h3>e-Learning</h3><p>Video tutorial petani</p></div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">🌿 <h3>Agrowisata</h3><p>Tur virtual kebun percontohan</p></div>
+    </div>
+</section>
+
+<!-- 5. BERITA TERBARU -->
+<section class="container mx-auto px-4 py-8">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold">📰 Berita & Kegiatan Terbaru</h2>
+        <a href="pages/berita.php" class="text-green-700">Lihat semua →</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <?php foreach($berita_list as $id => $berita): if($id > 3) break; ?>
+        <div class="bg-white rounded-xl shadow p-4">
+            <div class="text-xs text-gray-500">📅 <?php echo $berita['tanggal']; ?></div>
+            <h3 class="font-bold mt-2"><?php echo $berita['judul']; ?></h3>
+            <a href="pages/detail-berita.php?id=<?php echo $id; ?>" class="text-green-700 text-sm mt-2 inline-block">Baca →</a>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</section>
+
+<!-- 6. STATISTIK CAPAIAN -->
+<section class="bg-green-700 text-white py-12 my-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+            <div><div class="counter-value text-3xl font-bold" data-target="45">0</div><div>Penelitian</div></div>
+            <div><div class="counter-value text-3xl font-bold" data-target="12">0</div><div>Teknologi Tepat Guna</div></div>
+            <div><div class="counter-value text-3xl font-bold" data-target="8">0</div><div>Varietas Unggul</div></div>
+            <div><div class="counter-value text-3xl font-bold" data-target="3200">0</div><div>Petani Terlatih</div></div>
+            <div><div class="counter-value text-3xl font-bold" data-target="15">0</div><div>Kerja Sama</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. TESTIMONI -->
+<section class="container mx-auto px-4 py-8 text-center">
+    <div class="bg-white p-8 rounded-xl shadow max-w-2xl mx-auto">
+        <p class="text-gray-700 text-lg italic">"Dengan kalender tanam dari IP2TP, hasil panen saya naik 30%"</p>
+        <p class="font-bold text-green-700 mt-4">— Bapak Slamet</p>
+        <p class="text-sm text-gray-500">Petani Desa Tersono, Batang</p>
+    </div>
+</section>
+
+<!-- 8. MITRA KOLABORASI -->
+<section class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold text-center mb-6">🤝 Mitra Kolaborasi</h2>
+    <div class="flex flex-wrap justify-center gap-4">
+        <span class="bg-gray-200 px-4 py-2 rounded-lg">Diskominfo Batang</span>
+        <span class="bg-gray-200 px-4 py-2 rounded-lg">Dinas Pertanian</span>
+        <span class="bg-gray-200 px-4 py-2 rounded-lg">BPS Batang</span>
+        <span class="bg-gray-200 px-4 py-2 rounded-lg">Kementerian Pertanian</span>
+        <span class="bg-gray-200 px-4 py-2 rounded-lg">Pemkab Batang</span>
+    </div>
+</section>
+
+<?php include 'footer.php'; ?>

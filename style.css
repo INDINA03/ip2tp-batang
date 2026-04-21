@@ -1,0 +1,54 @@
+/* assets/css/style.css */
+
+/* Active Navigation */
+.active {
+    color: #2d6a4f;
+    font-weight: 600;
+    border-bottom: 2px solid #2d6a4f;
+}
+
+/* Card Hover Effect */
+.card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard Card */
+.dashboard-card {
+    border-left: 4px solid #2d6a4f;
+}
+
+/* Counter Animation */
+.counter-value {
+    transition: all 0.3s ease;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    .table-responsive {
+        overflow-x: auto;
+        display: block;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2d6a4f;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1b4332;
+}

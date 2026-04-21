@@ -1,0 +1,45 @@
+/* assets/css/style.css */
+.active {
+    color: #2d6a4f;
+    font-weight: 600;
+    border-bottom: 2px solid #2d6a4f;
+}
+
+/* Hero Section Gradient */
+.hero-gradient {
+    background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+}
+
+/* Card Hover Effect */
+.card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard Card */
+.dashboard-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-left: 4px solid #2d6a4f;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #2d6a4f;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+.btn-primary:hover {
+    background-color: #1b4332;
+}
+
+/* Animasi untuk statistik counter */
+.counter {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2d6a4f;
+}
